@@ -1,0 +1,79 @@
+
+
+
+/*---*/
+.mr20{
+    margin-right: 20px;
+}
+
+/*问答列表*/
+.stream-list__item {
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+.qa-rank, .bookmark-rank {
+    float: left;
+    margin-right: 5px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.2;
+    color: #666;
+}
+.qa-rank .votes, .bookmark-rank .votes, .qa-rank .answers, .bookmark-rank .answers, .qa-rank .views, .bookmark-rank .views {
+    display: inline-block;
+    padding-top: 3px;
+    width: 45px;
+    height: 40px;
+    -moz-border-radius: 1px;
+    -webkit-border-radius: 1px;
+    border-radius: 1px;
+}
+.qa-rank .answered, .bookmark-rank .answered {
+    background-color: #009a61;
+    color: #fff;
+}
+
+
+.qa-rank .answers, .bookmark-rank .answers {
+    margin: 0 6px;
+    background-color: #AD3A37;
+    color: #fff;
+}
+.qa-rank .viewsword100to999, .bookmark-rank .viewsword100to999 {
+    color: #b17e53;
+}
+.qa-rank small, .bookmark-rank small {
+    display: block;
+    font-size: 12px;
+}
+.stream-list__item .summary {
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.stream-list__item .author {
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 13px;
+}
+
+.list-inline {
+    margin-left: -5px;
+}
+.stream-list__item .title {
+    display: inline;
+    margin: 0 5px 0 0;
+    font-size: 16px;
+}
+
+.ib.taglist--inline, .ib.taglist--block {
+    margin: 0;
+    display: inline-block;
+}
+
+.taglist--inline, .taglist--block {
+    list-style: none;
+    padding: 0;
+    font-size: 0;
+}
