@@ -27,22 +27,27 @@ tag的 ajax选择
 
 ### 个人动态的实现需要用到aop
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+# 开发步骤
+首页展示  
+用户注册登录  
+新增标签  
+标签列表  
+  
+用户发布文章  
+文章明细  
+文章评论  
 
+标签下对应文章
 
-</head>
-<body>
+用户中心初版
 
-</body>
-</html>
-```
+用户提问  
+问题明细  
+问题评论  
 
+标签下对应问题
+
+收藏夹  
+各个模块的关注功能  
+动态  
 
