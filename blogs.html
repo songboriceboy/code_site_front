@@ -7,6 +7,7 @@
     <link href="assets/css/myglobal.css" rel="stylesheet">
     <script src="assets/jquery/jquery-3.2.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="assets/vue/vue.js"></script>
     <style>
         .stream__item-zan {
             float: left;
@@ -448,15 +449,18 @@
 
                     </div>
                     <div class="text-center">
-                        <ul class="pagination">
-                            <li class="active"><a href="javascript:void(0);">1</a></li>
-                            <li><a href="/blogs?page=2">2</a></li>
-                            <li><a href="/blogs?page=3">3</a></li>
-                            <li><a href="/blogs?page=4">4</a></li>
-                            <li><a href="/blogs?page=5">5</a></li>
-                            <li class="disabled"><span>…</span></li>
-                            <li class="next"><a rel="next" href="/blogs?page=2">下一页</a></li>
-                        </ul>
+                        <div class="page-bar">
+                            <ul class="pagination">
+                                <li v-if="cur>1"><a v-on:click="cur--,pageClick()">上一页</a></li>
+                                <li v-if="cur==1"><a>上一页</a></li>
+                                <li v-for="index in indexs"  v-bind:class="{ 'active': cur == index}">
+                                    <a v-on:click="btnClick(index)">{{ index }}</a>
+                                </li>
+                                <li v-if="cur!=all"><a v-on:click="cur++,pageClick()">下一页</a></li>
+                                <li v-if="cur == all"><a>下一页</a></li>
+                                <li><a>共<i>{{all}}</i>页</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div><!-- /.main__board --></div><!-- /.main -->
             <div class="col-xs-12 col-md-3 side mt30">
@@ -596,6 +600,62 @@
     }
 </style>
 
+<script type="text/javascript">
+    var pageBar = new Vue({
+        el: '.page-bar',
+        data: {
+            total: 75, //总记录数
+            pageSize:10,
+            cur: 1//当前页码
+        },
+        watch: {
+            cur: function(currValue , oldValue){
+                console.log('oldValue'+ oldValue);
+                console.log('currValue'+currValue);
+            }
+        },
+        methods: {
+            btnClick: function(data){//页码点击事件
+                if(data != this.cur){
+                    this.cur = data
+                }
+            },
+            pageClick: function(){
+                console.log('现在在'+this.cur+'页');
+            }
+        },
 
+        computed: {
+            all:function() { // 总页数
+                return Math.ceil(this.total / this.pageSize);
+            },
+            indexs: function(){
+                var left = 1;
+                var right = this.all;
+                var ar = [];
+                if(this.all>= 5){
+                    if(this.cur > 3 && this.cur < this.all-2){
+                        left = this.cur - 2
+                        right = this.cur + 2
+                    }else{
+                        if(this.cur<=3){
+                            left = 1
+                            right = 5
+                        }else{
+                            right = this.all
+                            left = this.all -4
+                        }
+                    }
+                }
+                while (left <= right){
+                    ar.push(left)
+                    left ++
+                }
+                return ar
+            }
+
+        }
+    })
+</script>
 </body>
 </html>
