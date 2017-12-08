@@ -105,3 +105,30 @@
     font-size: 13px;
     text-align: center;
 }
+
+.blog-rank {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+}
+
+.blog-rank {
+    float: left;
+    margin-right: 12px;
+    padding-right: 12px;
+    border-right: 1px solid #f3f3f3;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.2;
+    color: #666;
+}
+
+.stream__item-zan-icon {
+    height: 16px;
+    width: 100%;
+    background: transparent url(../vote-bg.svg) -1px -1px ;
+    -moz-background-size: auto 60px;
+    -o-background-size: auto 60px;
+    -webkit-background-size: auto 60px;
+    background-size: auto 54px;
+}
