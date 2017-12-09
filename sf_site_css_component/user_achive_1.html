@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+       .profile .form__base {
+            background: #FCF8E3;
+            border-top: 1px solid #FBEED5;
+            border-bottom: 1px solid #FBEED5;
+            margin: -15px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body class="profile">
+<div class="panel panel-default mb30">
+    <div class="panel-heading"><h3 class="panel-title">个人档案</h3></div>
+    <div class="panel-body">
+
+        <div class="pb15 profile__base ">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mb5"><span class="profile__mod-inner-heading">真人头像</span><span data-toggle="tooltip"
+                                                                                               data-placement="top"
+                                                                                               title="" class=""
+                                                                                               data-icon="lock"
+                                                                                               data-original-title="不对外公开"><i
+                            class="fa fa-lock" aria-hidden="true"></i></span></div>
+                    <div class="avatar avatar-square-128"><img class="avatar-square-128 "
+                                                               src="https://static.segmentfault.com/v-5a2a6074/global/img/user-256.png">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">真实姓名</span><span data-toggle="tooltip"
+                                                                                       data-placement="top" title=""
+                                                                                       class="" data-icon="lock"
+                                                                                       data-original-title="不对外公开"><i
+                                class="fa fa-lock" aria-hidden="true"></i></span></div>
+                        <div><span>暂无</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">出生日期</span><span data-toggle="tooltip"
+                                                                                       data-placement="top" title=""
+                                                                                       class="" data-icon="lock"
+                                                                                       data-original-title="不对外公开"><i
+                                class="fa fa-lock" aria-hidden="true"></i></span></div>
+                        <div><span>1970-01-01</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">手机号码</span><span data-toggle="tooltip"
+                                                                                       data-placement="top" title=""
+                                                                                       class="" data-icon="lock"
+                                                                                       data-original-title="不对外公开"><i
+                                class="fa fa-lock" aria-hidden="true"></i></span></div>
+                        <div><span>暂无</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">现居城市</span></div>
+                        <div><span>暂无</span></div>
+                    </div>
+                </div>
+                <div class="col-md-5"><span class="profile__heading-edit pull-right  btn btn-xs" data-type="base"><i
+                        class="fa fa-pencil" aria-hidden="true"></i>编辑</span>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">性别</span></div>
+                        <div><span>保密</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">个人网站</span></div>
+                        <div><span>暂无</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">Email</span><span data-toggle="tooltip"
+                                                                                        data-placement="top" title=""
+                                                                                        class="" data-icon="lock"
+                                                                                        data-original-title="不对外公开"><i
+                                class="fa fa-lock" aria-hidden="true"></i></span></div>
+                        <div><span>暂无</span></div>
+                    </div>
+                    <div class="profile__mod-inner-item">
+                        <div><span class="profile__mod-inner-heading">通讯地址</span><span data-toggle="tooltip"
+                                                                                       data-placement="top" title=""
+                                                                                       class="" data-icon="lock"
+                                                                                       data-original-title="不对外公开"><i
+                                class="fa fa-lock" aria-hidden="true"></i></span></div>
+                        <div class="ellipsis"><span>暂无</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form class="form__base" data-action="/api/user/profile/info/edit">
+            <div class="mb10">
+                <div class="pull-left">
+                    <div class="avatar  avatar__form "><img class="avatar-square-128"
+                                                            src="https://static.segmentfault.com/v-5a2a6074/global/img/user-256.png">
+                    </div>
+                </div>
+                <div class="" style="margin-left: 158px;padding-top: 30px;">
+                    <button id="uploadAvatar2" class="btn btn-default btn-xs mb10" type="button">
+                        上传真人头像
+                    </button>
+                    <input type="file" id="avatarFile2" name="avatar" class="file hide">
+                    <p>支持 jpg/jpeg/png 格式，大小不要超过 2MB<br>
+                        该头像不会覆盖 SegmentFault 社区头像</p></div>
+                <div style="clear:both"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group"><label class="required control-label">姓名</label><input name="name"
+                                                                                                   class="form-control"
+                                                                                                   placeholder="真实姓名"
+                                                                                                   value=""></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"><label class="required control-label">性别</label>
+                        <div class="js-form-base__radio"><label class="checkbox-inline"><input type="radio" data-g="0"
+                                                                                               checked="" name="gender"
+                                                                                               value="0">
+                            保密
+                        </label><label class="checkbox-inline"><input type="radio" name="gender" value="1">
+                            男
+                        </label><label class="checkbox-inline"><input type="radio" name="gender" value="2">
+                            女
+                        </label></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group"><label class="required control-label">出生日期</label><input name="birthday"
+                                                                                                     type="text"
+                                                                                                     class="form-control"
+                                                                                                     data-date-format="yyyy-mm-dd"
+                                                                                                     placeholder="如: 1989-06-04"
+                                                                                                     value="1970-01-01">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"><label class=" control-label">个人网站</label><input name="site"
+                                                                                             class="form-control"
+                                                                                             placeholder="example.com"
+                                                                                             type="url" value=""></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group"><label class="required control-label">手机号码</label><input name="phone"
+                                                                                                     class="form-control"
+                                                                                                     placeholder="11 位手机号码，方便 HR 联系"
+                                                                                                     type="tel"
+                                                                                                     value=""></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"><label class="required control-label">Email</label><input name="mail"
+                                                                                                      class="form-control"
+                                                                                                      placeholder="用于收取通知邮件"
+                                                                                                      type="email"
+                                                                                                      value=""></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group"><label for="" class="required control-label">所在城市</label><input
+                            id="citiesAutoComplete" type="text" name="city" data-city="null" class="form-control hidden"
+                            placeholder="当前所在城市">
+                        <div class="sf-typeHelper sf-typeHelper--single"><input type="text"
+                                                                                data-role="sf_typeHelper-input"
+                                                                                class="sf-typeHelper-input"
+                                                                                placeholder="当前所在城市"
+                                                                                style="width: 6em;">
+                            <ul class="sf-typeHelper-list dropdown-menu" style="display: none;"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group"><label class=" control-label">通讯地址</label><input name="address"
+                                                                                             class="form-control"
+                                                                                             placeholder="通讯地址"
+                                                                                             type="text" value=""></div>
+                </div>
+            </div>
+            <div class="">
+                <div class="pull-left"><a target="_blank" href="/user/settings" class="btn btn-default">绑定第三方账号</a>
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn btn-default js-cancel mr10">取消</button>
+                    <button type="button" class="btn btn-primary js-submit">保存</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
