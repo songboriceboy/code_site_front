@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../assets/jquery/jquery-3.2.1.min.js"></script>
     <style>
        .profile .form__base {
             background: #FCF8E3;
@@ -11,8 +12,26 @@
             border-bottom: 1px solid #FBEED5;
             margin: -15px;
             padding: 15px;
+           font-size: 16px;
         }
+       .profile__mod-inner-item {
+           margin-bottom: 10px;
+           font-size: 18px;
+       }
+       .profile__mod-inner-heading {
+           font-size: 16px;
+           color: #999999;
+       }
     </style>
+    <script>
+        $(function () {
+            $('.profile__heading-edit').click(function () {
+                alert('dd');
+                $('.profile').find('.form__base').removeClass('hide');
+                $('.profile').find('.profile__base').addClass('hide');
+            })
+        })
+    </script>
 </head>
 <body class="profile">
 <div class="panel panel-default mb30">
@@ -63,7 +82,8 @@
                     </div>
                 </div>
                 <div class="col-md-5"><span class="profile__heading-edit pull-right  btn btn-xs" data-type="base"><i
-                        class="fa fa-pencil" aria-hidden="true"></i>编辑</span>
+                        class="fa fa-pencil" aria-hidden="true"></i>编辑a</span>
+
                     <div class="profile__mod-inner-item">
                         <div><span class="profile__mod-inner-heading">性别</span></div>
                         <div><span>保密</span></div>
@@ -91,7 +111,8 @@
                 </div>
             </div>
         </div>
-        <form class="form__base" data-action="/api/user/profile/info/edit">
+
+        <form class="form__base hide" data-action="/api/user/profile/info/edit">
             <div class="mb10">
                 <div class="pull-left">
                     <div class="avatar  avatar__form "><img class="avatar-square-128"
