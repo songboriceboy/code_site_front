@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/sflive.css" rel="stylesheet">
+    <style>
+        .live-block-box {
+            padding-bottom: 30px;
+            border-bottom: 1px #eee solid
+        }
+
+        .live-block {
+            margin-right: 0
+        }
+
+        @media (min-width: 768px) {
+            .live-block .item-container {
+                margin-bottom: 15px
+            }
+        }
+
+        .live-block .item-container > a:hover {
+            text-decoration: none
+        }
+
+        .live-block .item {
+            height: 270px;
+            color: #999;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.09)
+        }
+
+        .live-block .item:hover {
+            position: relative;
+            top: -2px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.09)
+        }
+
+        .live-block .item .banner {
+            position: relative;
+            height: 146px
+        }
+
+        .live-block .item .banner > img {
+            width: 100%;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px
+        }
+
+        .live-block .item .banner > .course-type {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            border-radius: 4px;
+            padding: 5px 7px;
+            background: rgba(0, 154, 97, 0.6);
+            color: #fff;
+            line-height: 1
+        }
+
+        .live-block .item .title {
+            height: 44px;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical
+        }
+
+        .live-block .item .author {
+            color: #666666
+        }
+
+        .live-block .item .curPrice {
+            color: #ED1C24;
+            font-size: 16px;
+            font-weight: 500
+        }
+
+        .live-block .item .prePrice {
+            font-size: 12px
+        }
+
+
+        .program {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin: 0px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.09)
+        }
+
+        .program a {
+            text-decoration: none
+        }
+
+        .program-bgimg {
+            position: relative;
+            width: 180px
+        }
+
+        @media (max-width: 767px) {
+            .program-bgimg {
+                width: 100px;
+                overflow: hidden
+            }
+        }
+
+        .program:hover {
+            background-color: #FFFCEC
+        }
+
+        .program-content {
+            margin-left: 198px
+        }
+
+        @media (max-width: 767px) {
+            .program-content {
+                margin-left: 118px
+            }
+        }
+
+        .program-title {
+            color: #212121;
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 7px;
+            line-height: 22px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap
+        }
+
+        .program-tag {
+            margin-bottom: 7px
+        }
+
+        .program-tag span {
+            margin-top: 1px;
+            padding: 4px 6px;
+            background-color: #E5E5E5;
+            color: #666;
+            font-size: 12px;
+            text-decoration: none
+        }
+
+        .program-info {
+            color: #999;
+            font-size: 13px;
+            line-height: 18px
+        }
+
+        .program-bgimg img {
+            width: 180px;
+            height: 100px;
+            border: 1px solid #eee
+        }
+
+        @media (max-width: 767px) {
+            .program-bgimg img {
+                margin-left: -40px
+            }
+        }
+
+        .program-info-name {
+            color: #999
+        }
+
+        .program-info-name:hover {
+            text-decoration: underline
+        }
+
+        .program-info-date {
+            line-height: 18px;
+            margin-bottom: 5px;
+            display: inline-block
+        }
+
+        .program-info-price {
+            color: #ED1C24
+        }
+
+        .program-state {
+            font-size: 13px;
+            line-height: 18px;
+            margin-top: 5px
+        }
+
+        .program-state .will {
+            color: #F6A623
+        }
+
+        .program-state .doing {
+            color: #58B957
+        }
+
+        .program-state .done {
+            color: #999
+        }
+
+        .program-state .program-state-word {
+            display: inline-block;
+            margin-right: 10px
+        }
+
+        .program-state .curPrice {
+            color: #ED1C24;
+            font-size: 13px;
+            font-weight: 500
+        }
+
+        .program-state .prePrice {
+            color: #999;
+            font-size: 12px
+        }
+
+        .program-state .program-state-discountsign {
+            display: inline-block;
+            color: #F5A623;
+            border: 1px solid;
+            margin-left: 5px;
+            padding: 2px 7px;
+            border-radius: 3px;
+            white-space: nowrap
+        }
+
+        .program-state .program-state-duration {
+            display: inline-block;
+            margin-top: 5px;
+            margin-right: 10px
+        }
+
+    </style>
+</head>
+<body>
+<div class="program-box mt20" data-page="1">
+    <div class="live-block clearfix row">
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012292672">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/172/845/1728458417-5a2652d48b981_render"><span
+                        class="course-type">
+                                                                LIVE
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">一堂课带你彻底搞清 Java8 Lambda 表达式以及 Stream</p>
+                    <div class="mb8"><span class="author pr10" href="/u/coderknock">拿客_三产</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥5.00</span>
+                        <del class="prePrice">￥9.90</del>
+                        <span class="pull-right">10人参与</span></div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012292672" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-live"><img class="type-live"
+                                                                                                     src="https://sfault-live.b0.upaiyun.com/172/845/1728458417-5a2652d48b981_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    一堂课带你彻底搞清 Java8 Lambda 表达式以及 Stream
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">初级</span><span class="inline-block">知识体系</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/coderknock"><span class="program-info-name">拿客_三产</span></a></object>
+                        · <span class="program-info-number">10 人参与</span></div>
+                    <div class="program-state">
+                        <div class="will"><i class="fa fa-clock-o mr5" aria-hidden="true"></i><span
+                                class="program-state-duration"> 2017-12-30 周六</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥5.00</span>
+                            <del class="prePrice">￥9.90</del>
+                            <span class="program-state-discountsign">限时优惠</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012285056">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/169/102/1691021957-5a25f828d48ef_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">es6实战(中)</p>
+                    <div class="mb8"><span class="author pr10" href="/u/ghostwu">ghostwu</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥10.00</span><span class="pull-right">2人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012285056" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/169/102/1691021957-5a25f828d48ef_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    es6实战(中)
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=前端开发"><span class="inline-block">前端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">中级</span><span class="inline-block">综合</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/ghostwu"><span class="program-info-name">ghostwu</span></a></object>
+                        · <span class="program-info-number">2 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">2小时1分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥10.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012272286">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/155/874/1558746038-5a289c52a2fd1_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">vue全家桶+nodejs音乐播放器</p>
+                    <div class="mb8"><span class="author pr10" href="/u/lidao">离岛</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥9.00</span><span class="pull-right">5人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012272286" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/155/874/1558746038-5a289c52a2fd1_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    vue全家桶+nodejs音乐播放器
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=前端开发"><span class="inline-block">前端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">中级</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/lidao"><span class="program-info-name">离岛</span></a></object>
+                        · <span class="program-info-number">5 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">1小时26分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥9.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012267824">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/162/545/1625451383-5a24aaad45328_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">es6实战(上)</p>
+                    <div class="mb8"><span class="author pr10" href="/u/ghostwu">ghostwu</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥10.00</span><span class="pull-right">2人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012267824" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/162/545/1625451383-5a24aaad45328_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    es6实战(上)
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=前端开发"><span class="inline-block">前端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">中级</span><span class="inline-block">综合</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/ghostwu"><span class="program-info-name">ghostwu</span></a></object>
+                        · <span class="program-info-number">2 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">2小时14分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥10.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012270653">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/288/658/2886585761-5a24c2915ef33_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">Kotlin + Spring Boot 服务端开发课程系列】第3讲 Kotlin + Spring Boot 集成
+                    MyBat</p>
+                    <div class="mb8"><span class="author pr10" href="/u/donghaichenguangjian">东海陈光剑</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥12.03</span><span class="pull-right">16人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012270653" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/288/658/2886585761-5a24c2915ef33_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    Kotlin + Spring Boot 服务端开发课程系列】第3讲 Kotlin + Spring Boot 集成 MyBat
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">高级</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/donghaichenguangjian"><span class="program-info-name">东海陈光剑</span></a>
+                        </object>
+                        · <span class="program-info-number">16 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">1小时16分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥12.03</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012258375">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/288/658/2886585761-5a22e54b377df_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">【Kotlin + Spring Boot 服务端开发课程系列】第2讲 Kotlin + Spring Boot 集成
+                    JPA</p>
+                    <div class="mb8"><span class="author pr10" href="/u/donghaichenguangjian">东海陈光剑</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥12.03</span><span class="pull-right">21人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012258375" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/288/658/2886585761-5a22e54b377df_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    【Kotlin + Spring Boot 服务端开发课程系列】第2讲 Kotlin + Spring Boot 集成 JPA
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">高级</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/donghaichenguangjian"><span class="program-info-name">东海陈光剑</span></a>
+                        </object>
+                        · <span class="program-info-number">21 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">1小时4分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥12.03</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012232953">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/213/038/2130383979-5a1ff3ece1d67_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">深入理解布局神器 flexbox</p>
+                    <div class="mb8"><span class="author pr10" href="/u/1023">一歩</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥10.00</span><span class="pull-right">13人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012232953" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/213/038/2130383979-5a1ff3ece1d67_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    深入理解布局神器 flexbox
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=前端开发"><span class="inline-block">前端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">初级</span><span class="inline-block">知识体系</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/1023"><span class="program-info-name">一歩</span></a></object>
+                        · <span class="program-info-number">13 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">1小时8分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥10.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012219438">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/427/882/4278824437-5a1eabe2e55cd_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">Learn Clojure第五讲：深入浅出Transducer</p>
+                    <div class="mb8"><span class="author pr10" href="/u/liujiacai">jiacai2050</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥5.00</span><span class="pull-right">2人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012219438" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/427/882/4278824437-5a1eabe2e55cd_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    Learn Clojure第五讲：深入浅出Transducer
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">初级</span><span class="inline-block">知识体系</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/liujiacai"><span class="program-info-name">jiacai2050</span></a></object>
+                        · <span class="program-info-number">2 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">27分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥5.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012221009">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/242/814/2428142509-5a1ec633b5625_render"><span
+                        class="course-type">
+                                                                LIVE
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">如何“四两拨千斤”做好项目管理</p>
+                    <div class="mb8"><span class="author pr10" href="/u/qianniuandroidtuandui">阿里巴巴千牛安卓</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥1.00</span><span class="pull-right">67人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012221009" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-live"><img class="type-live"
+                                                                                                     src="https://sfault-live.b0.upaiyun.com/242/814/2428142509-5a1ec633b5625_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    如何“四两拨千斤”做好项目管理
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=其他"><span class="inline-block">其他</span></a></object>
+                        <span class="inline-block ml5 mr5">综合</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/qianniuandroidtuandui"><span class="program-info-name">阿里巴巴千牛安卓</span></a>
+                        </object>
+                        · <span class="program-info-number">67 人参与</span></div>
+                    <div class="program-state">
+                        <div class="will"><i class="fa fa-clock-o mr5" aria-hidden="true"></i><span
+                                class="program-state-duration"> 1小时后</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥1.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/ls/1650000012209057">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/402/770/4027704407-5a1e21ab0c7c0_render"><span
+                        class="course-type">
+                                                                系列
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">Mocha 自动化测试框架</p>
+                    <div class="mb8"><span class="author pr10" href="/u/wngding">王顶</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥22.00</span><span class="pull-right">14人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/ls/1650000012209057" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-live_series"><img
+                        class="type-live"
+                        src="https://sfault-live.b0.upaiyun.com/402/770/4027704407-5a1e21ab0c7c0_render"></div>
+                <div class="program-content"><h2 class="program-title">
+                    Mocha 自动化测试框架
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=前端开发"><span class="inline-block">前端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">初级</span><span class="inline-block">知识体系</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/wngding"><span class="program-info-name">王顶</span></a></object>
+                        · <span class="program-info-number">14 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="mr10"> 3 场</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥22.00</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012193439">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/317/733/3177336349-5a1ce263811f8_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">【构造开源微信API库系列】01 - 结构分析及入口类的实现</p>
+                    <div class="mb8"><span class="author pr10" href="/u/abei2017">阿北</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥9.90</span><span class="pull-right">6人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012193439" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/317/733/3177336349-5a1ce263811f8_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    【构造开源微信API库系列】01 - 结构分析及入口类的实现
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">初级</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/abei2017"><span class="program-info-name">阿北</span></a></object>
+                        · <span class="program-info-number">6 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">38分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥9.90</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+        <div class="item-container col-sm-4 pr0"><a class="hidden-xs" href="/l/1500000012161697">
+            <div class="item">
+                <div class="banner"><img
+                        src="https://sfault-live.b0.upaiyun.com/500/181/500181779-5a1d70da44110_render"><span
+                        class="course-type">
+                                                                视频
+                                                            </span></div>
+                <div class="pl15 pr15"><p class="title">基于Spring Boot构建个人博客(2)</p>
+                    <div class="mb8"><span class="author pr10" href="/u/jsbxyyx">水门</span></div>
+                    <div class="clearfix"><span class="curPrice mr3">￥9.90</span><span class="pull-right">1人参与</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+            <div class="program visible-xs-block"><a href="/l/1500000012161697" target="_blank" class="block clearfix">
+                <div class="program-bgimg pull-left program-bgimg-sign program-bgimg-sign-record"><img class="type-live"
+                                                                                                       src="https://sfault-live.b0.upaiyun.com/500/181/500181779-5a1d70da44110_render">
+                </div>
+                <div class="program-content"><h2 class="program-title">
+                    基于Spring Boot构建个人博客(2)
+                </h2>
+                    <div class="program-tag">
+                        <object><a href="/lives/?type=后端开发"><span class="inline-block">后端开发</span></a></object>
+                        <span class="inline-block ml5 mr5">中级</span><span class="inline-block">项目实战</span></div>
+                    <div class="program-info">
+                        <object><a href="/u/jsbxyyx"><span class="program-info-name">水门</span></a></object>
+                        · <span class="program-info-number">1 人参与</span></div>
+                    <div class="program-state">
+                        <div class="done"><span class="program-state-duration">1小时30分钟</span></div>
+                        <div class="mt5"><span class="curPrice mr3">￥9.90</span></div>
+                    </div>
+                </div>
+            </a></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
